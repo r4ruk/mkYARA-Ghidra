@@ -1,0 +1,9 @@
+def ghidraDir
+if (project.hasProperty("GHIDRA_INSTALL_DIR")) {
+    ghidraDir = project.getProperty("GHIDRA_INSTALL_DIR")
+} else if (System.env.GHIDRA_INSTALL_DIR) {
+    ghidraDir = System.env.GHIDRA_INSTALL_DIR
+} else {
+    throw new GradleException("GHIDRA_INSTALL_DIR is not set.")
+}
+apply from: new File(ghidraDir, "support/buildExtension.gradle").absolutePath
