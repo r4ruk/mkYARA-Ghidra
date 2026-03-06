@@ -7,3 +7,8 @@ if (project.hasProperty("GHIDRA_INSTALL_DIR")) {
     throw new GradleException("GHIDRA_INSTALL_DIR is not set.")
 }
 apply from: new File(ghidraDir, "support/buildExtension.gradle").absolutePath
+
+buildExtension {
+    exclude '*.md'
+    exclude 'script/'
+}
